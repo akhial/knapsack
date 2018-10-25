@@ -8,14 +8,28 @@ import javafx.stage.Stage;
 
 public class MainScreen extends Application {
 
+    private Stage primaryStage;
+
+    Controller setScene(String url) throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(url));
+        Parent root = loader.load();
+
+        primaryStage.setTitle("Knapsack");
+        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.show();
+
+        return loader.getController();
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/KnapsackInputView.fxml"));
-        Parent root = loader.load();
-        primaryStage.setTitle("Knapsack");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+        this.primaryStage = primaryStage;
+        Knapsack knapsack = new Knapsack();
+
+        Controller controller = setScene("/KnapsackInputView.fxml");
+        controller.setKnapsack(knapsack);
+        controller.setMainScreen(this);
     }
 
 
