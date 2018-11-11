@@ -1,0 +1,28 @@
+.text {
+    -fx-fill: black;
+}
+
+#info-label {
+    -fx-font-size: 18;
+}
+
+#info-input {
+    -fx-skin: none;
+    -fx-background-color: #2e2e2e, #ffffff;
+}
+
+#item {
+    -fx-fill: #2e2e2e;
+}
+
+#taken {
+    -fx-fill: #2eFF2e;
+}
+
+#item-label {
+    -fx-text-fill: white;
+}
+
+#item-taken {
+    -fx-text-fill: black;
+}

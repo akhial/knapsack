@@ -9,34 +9,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.knapsack.KnapsackInputController">
+<AnchorPane prefHeight="332.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.knapsack.KnapsackInputController">
    <children>
-      <StackPane layoutX="187.0" layoutY="78.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane fx:id="topLevel" layoutX="187.0" layoutY="78.0" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox prefHeight="200.0" prefWidth="607.0">
+            <VBox alignment="CENTER" prefHeight="263.0" prefWidth="400.0">
                <StackPane.margin>
-                  <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+                  <Insets bottom="30.0" left="100.0" right="100.0" top="30.0" />
                </StackPane.margin>
                <children>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="67.0" prefWidth="396.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Capacité du sac-à-dos (w)">
                            <HBox.margin>
                               <Insets right="20.0" />
-                           </HBox.margin></Text>
+                           </HBox.margin>
+                        </Text>
                         <JFXTextField fx:id="weightField" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre d'objets (n)">
                            <HBox.margin>
                               <Insets right="20.0" />
                            </HBox.margin></Text>
-                        <JFXTextField fx:id="numberField" />
+                        <JFXTextField fx:id="numberField">
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin></JFXTextField>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="273.0">
                      <children>
                         <JFXButton fx:id="goButton" onAction="#onGoButton" text="GO!" />
                      </children>

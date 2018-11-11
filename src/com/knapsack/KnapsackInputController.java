@@ -1,12 +1,17 @@
 package com.knapsack;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
-
-import javax.swing.*;
+import javafx.geometry.Insets;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 
 public class KnapsackInputController extends Controller {
+
+    @FXML
+    StackPane topLevel;
 
     @FXML
     JFXTextField weightField;
@@ -30,12 +35,13 @@ public class KnapsackInputController extends Controller {
 
             Controller controller = mainScreen.setScene("/KnapsackView.fxml");
             controller.setKnapsack(knapsack);
+            controller.setMainScreen(mainScreen);
             controller.setup();
 
         } catch(NumberFormatException nfe) {
-            JOptionPane.showMessageDialog(null, "Veuillez entrer des nombres!", "Erreur", JOptionPane.ERROR_MESSAGE);
+            err("Veuillez entrer des nombres!");
         } catch(Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            err(e.getMessage());
         }
     }
 
@@ -43,5 +49,14 @@ public class KnapsackInputController extends Controller {
     void setup() {
         weightField.setText(String.valueOf(knapsack.getW()));
         numberField.setText(String.valueOf(knapsack.getN()));
+    }
+
+    private void err(String message) {
+        JFXDialog dialog = new JFXDialog();
+
+        Label content = new Label(message);
+        content.setPadding(new Insets(30, 30, 30, 30));
+        dialog.setContent(content);
+        dialog.show(topLevel);
     }
 }
